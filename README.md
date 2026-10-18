@@ -1,4 +1,4 @@
-# Russian equipment losses and front-line weather
+# Russian Equipment & Personnel Losses and Front-line Weather
 
 Data Acquisition and Preprocessing project, TU Dublin.
 
