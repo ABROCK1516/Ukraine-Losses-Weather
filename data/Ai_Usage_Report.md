@@ -54,3 +54,29 @@ The prompts that were used and shaped the project, copied word for word.
 - Agreed a two-week plan. The engagement data's purpose is to show whether bad weather means less fighting or less deadly fighting.
 - **AI error caught:** AI had said the engagement data ran from May 2024 onwards. This didn't match what I could see on the dashboard. When I tested the data file in Colab, the history was stored under `data["history"]["eng"]` with a single start date, and values run from 22 Feb 2023 to 16 Oct 2026, almost complete.
 - **Date alignment check:** one news article (h.ua, 3 Oct 2026) reported 194 engagements on 2 Oct and 1,560 personnel losses. The engagement data has 194 on 2 Oct, while the Kaggle data has 1,560 on 3 Oct. So Kaggle dates are the day of reporting, and need shifting back one day to match the day of fighting.
+
+---
+
+- ## Session 3 – 20 Oct 2026: Step 1 dataset description 
+
+**13.**
+> 'Add a brief text description of your dataset to your iPython notebook.' do you think we have done this or shall we add this just above the 'data notes'
+
+**14.**
+> Data types: the data column is stored as a object which means pandas views it as text i think however i could not find an explaination for why its an object, i just kept seeing people say everything in python is an object.
+
+**15.**
+> so are we able to use equipment even if it was only started in use/ like 2023 onwards such as cruise missles?
+
+**16.**
+> On 22 September 2023, headquarters of the Russian Black Sea Fleet at Sevastopol was attacked by Storm Shadow/SCALP cruise missiles launched by Su-24s of the Ukrainian Air Force. this is what i pulled online
+
+**17.** *(quoted part of Claude's previous message about new categories starting with a high value)*
+> for this data is it possible to find the average so lets say ground robots gets added on day 550 of the war, could i divide the figure 1306 by 550 to get the average per day or would this just be an incorrect way of handling the data
+
+### Outcome
+- **Notebook fixes:** Claude reviewed the notebook and gave copy-paste fixes for heading levels, intro typos, the Kharkiv wording and comments in the setup cells. I applied them. I pointed out that a "Use of AI" section in the notebook wasn't needed, as this report is in GitHub.
+- **Check cells:** Claude wrote two check cells and explained each line. One confirms the dates match in both files; the other finds the first and last date each mostly-empty column has data. I ran them: the dates matched in every row, and the date ranges showed when each category was added, dropped or replaced.
+- **Choosing loss categories:** Claude suggested three tests for which categories to use in the weather analysis: reported for the whole period, changes often enough, and linked to front-line weather.
+- **Submarine date:** Claude suggested that the `submarines` column starting on 14 Sep 2023 might match a strike in Sevastopol. My search found a different attack (22 Sep 2023, Black Sea Fleet headquarters). Claude then confirmed with a web search that the submarine Rostov-on-Don was hit on 13 Sep 2023, which fits the one-day reporting delay.
+- **Averages:** I asked whether a new category's first value could be spread over the earlier days to get a daily average. Claude explained why not, using my data: it would give about 0.85 ground robots per day and it would invent figures for days with no reports.
