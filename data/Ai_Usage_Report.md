@@ -75,8 +75,66 @@ The prompts that were used and shaped the project, copied word for word.
 > for this data is it possible to find the average so lets say ground robots gets added on day 550 of the war, could i divide the figure 1306 by 550 to get the average per day or would this just be an incorrect way of handling the data
 
 ### Outcome
-- **Notebook fixes:** Claude reviewed the notebook and gave copy-paste fixes for heading levels, intro typos, the Kharkiv wording and comments in the setup cells. I applied them. I pointed out that a "Use of AI" section in the notebook wasn't needed, as this report is in GitHub.
+- **Notebook fixes:** Claude reviewed the notebook and gave copy-paste fixes for heading levels, intro typos, the Kharkiv wording and comments in the setup cells. I applied them. 
 - **Check cells:** Claude wrote two check cells and explained each line. One confirms the dates match in both files; the other finds the first and last date each mostly-empty column has data. I ran them: the dates matched in every row, and the date ranges showed when each category was added, dropped or replaced.
 - **Choosing loss categories:** Claude suggested three tests for which categories to use in the weather analysis: reported for the whole period, changes often enough, and linked to front-line weather.
 - **Submarine date:** Claude suggested that the `submarines` column starting on 14 Sep 2023 might match a strike in Sevastopol. My search found a different attack (22 Sep 2023, Black Sea Fleet headquarters). Claude then confirmed with a web search that the submarine Rostov-on-Don was hit on 13 Sep 2023, which fits the one-day reporting delay.
 - **Averages:** I asked whether a new category's first value could be spread over the earlier days to get a daily average. Claude explained why not, using my data: it would give about 0.85 ground robots per day and it would invent figures for days with no reports.
+
+
+## Session 4 – 20–22 Oct 2026: robots.txt, terms of use, scraping ethics and daily losses
+
+**18.**
+> lets make a start
+
+**19.** *(quoted part of Claude's previous message asking me to open robots.txt in the browser)*
+> this wont seem to load for me everytime i look it up
+
+**20.** *(attached a screenshot of the browser error "can't reach this page")*
+> the wbebsite is acting weird now
+
+**21.**
+> I cant seem to access the website at all, i tried edge and chrome and tried manually typing in the website address, why would i be blocked?
+
+**22.** *(followed by the robots.txt output from Colab)*
+> Yes im on hotspot and its not working - maybe thats the reason? last time i looked it up i was using my at home wifi. and yes it works in colab this is the output.
+
+**23.**
+> The first block of rules apply to me. No weather.php is not among them so we are safe to visit. No there is no crawl delay but we will use one to prevent overloading the website, if there was no delay then it would be obvious there is a bot scraping. can you explain to me more about the summary, what would be on the summary page that they wouldnt want it to be scraped
+
+**24.**
+> where are you seeing these clauses? where did you get that as im not seeingthat on the robot.txt
+
+**25.**
+> does this change our layout for the robot.txt in the colab or?
+
+**26.** *(pasted the Russian text of sections 1–4 of the site's user agreement, followed by:)*
+> TRANSLATE
+
+**27.**
+> the site works now that im at home usinb my own wifi. do i need to put parts of the user agreement on my colab or?
+
+**28.**
+> ive no idea what you want me to do next. in terms of the user agreement and the ethics
+
+**29.**
+> what do the clauses mean and would it not be worth having the code just have the range frpm the list be about the clauses we're mentioning?
+
+**30.** *(quoted part of Claude's previous message about inner, left and outer joins)*
+> how come we dont use join with outter then?
+
+**31.** *(attached a screenshot of the sorted table)*
+> just on this part of viewing the date by oldest, how come theres a column labelled '...' and why does the personnel just have ' about'rather then figures
+
+**32.**
+> 1. I cant acc find the value_counts() but the head and shape seem to confirm no missing values.
+> 2. yes there is a negative day - on day 457 tanks are at -2.0 - possibly due to inaccurate reports or over counting destoryed tanks ect?
+> 3. in the summary statistics the min figures are in negatives or 0, im not sure why explain. -2.000000 -14.000000 -10.000000 0.000000 0.000000
+> 4. median for drones is alot higher at 36 compared to tanks 5, this would make sense as there is well more wide usage of drones as they are cheaper and more effective then tanks
+
+### Outcome
+- **Site access:** I couldn't reach the site in Edge or Chrome on my phone hotspot. Claude checked with its web tool that the site was up. The robots.txt request worked in Colab, and the site loaded on my home Wi-Fi, so the problem was my mobile network.
+- **robots.txt:** I ran the check in Colab and worked out that the general rules apply to my scraper, `/weather.php` isn't disallowed and there's no crawl delay. 
+- **Terms of use:** Claude found and read the site's user agreement, which I hadn't known about. It corrected its own earlier guess about why `/summary/` is disallowed (it's a members-only section, clauses 2.9 and 3.6). Claude translated the agreement and I checked the translation with Google Translate. Because of clause 3.5, the raw HTML pages will stay in Google Drive and only the extracted data will go on GitHub.
+- **Weather page structure:** Claude loaded the March 2024 Donetsk page and pointed out that the times and the weather values are in two separate tables, that rows in italics are modelled estimates rather than real observations, that the page is UTF-8, and that the `bot=2` URL parameter may answer the site's "robot / alien / human" question. I still need to check all of these myself.
+- **Daily losses:** Claude explained the code to convert the dates, join the two files, sort by date, check for missing days and calculate daily losses with `.diff()`. After asking about the join types, I chose an outer join. I ran all the checks.
