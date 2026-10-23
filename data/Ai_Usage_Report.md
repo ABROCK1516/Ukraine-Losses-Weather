@@ -138,3 +138,57 @@ The prompts that were used and shaped the project, copied word for word.
 - **Terms of use:** Claude found and read the site's user agreement, which I hadn't known about. It corrected its own earlier guess about why `/summary/` is disallowed (it's a members-only section, clauses 2.9 and 3.6). Claude translated the agreement and I checked the translation with Google Translate. Because of clause 3.5, the raw HTML pages will stay in Google Drive and only the extracted data will go on GitHub.
 - **Weather page structure:** Claude loaded the March 2024 Donetsk page and pointed out that the times and the weather values are in two separate tables, that rows in italics are modelled estimates rather than real observations, that the page is UTF-8, and that the `bot=2` URL parameter may answer the site's "robot / alien / human" question. I still need to check all of these myself.
 - **Daily losses:** Claude explained the code to convert the dates, join the two files, sort by date, check for missing days and calculate daily losses with `.diff()`. After asking about the join types, I chose an outer join. I ran all the checks.
+
+
+## Session 5 – 23 Oct 2026: fetching one page, the bot parameter and parsing one month
+
+**32.**
+> So whats the plan now
+
+**33.**
+> plan as it whats next work wise for this assignment that i can start doing now
+
+**34.** *(pasted the error below and attached a copy of the site's home page that I had saved from my browser)*
+> [Errno 2] No such file or directory: 'raw_html/donetsk_2024_03.html'
+
+**35.** *(followed by the full FileNotFoundError traceback from the fetch cell)*
+> explain whats wrong with the code so i can fix it myself
+
+**36.**
+> yes that has been created whats next?
+
+**37.** *(followed by the output of the cell that prints the 18 weather cells)*
+> for the bot it came back with this. 74182 characters | 2 tables 53 rows 53 rows
+>
+> weather came back with this
+
+**38.**
+> I would consider by passing the human gate as ethical as its only for a student project, its not used in malicous intent and its only taking weather observations not super high value data
+
+**39.**
+> Will we have to do translate it to english at some stage?
+
+**40.**
+> we can do that at the end i was just wondering
+
+**41.** *(pasted the output of `march["wind_speed"].unique()`, followed by:)*
+> An array is like a list isnt it? its like a structured/organised list?
+
+**42.**
+> there is a weird glitch in my github, colab notebook, where the words and the screen is all stuttery
+
+**43.**
+> im in edge and its in github
+
+**44.** *(attached a short video of the glitch, with no text)*
+
+**45.**
+> i switched to chrome and it works. okay so after comitting our colab file whats next to do in github
+
+### Outcome
+- **Plan:** Claude set out a day-by-day plan up to submission and flagged that I was about a day behind.
+- **Fetching one page:** I had downloaded the site's home page from my browser by mistake (Edge had also translated it), so Claude explained that the code downloads the page itself. Claude's first fetch cell failed because it expected me to create the `raw_html` folder by hand; Claude fixed it with `os.makedirs`.
+- **Page structure:** I ran the charset, table-listing and bot-input cells. The page is UTF-8 and has two tables with no class: one with times and dates, the other with the 18 weather values, both with 243 rows. 
+- **The bot parameter:** the form's `bot` field means 0 = robot, 1 = alien, 2 = human (ticked by default). Claude suggested testing `bot=0`, and it returned only 53 rows instead of 243. I argued that answering "human" was ethical because the project is low-risk. Claude disagreed, because the field is an access limit and `bot=2` misrepresents the scraper.
+- **Wind:** I ran the gust and wind-speed checks. I saw out that the smallest gust is 10 m/s, that average wind speeds are only even numbers (steps of 2 m/s) and that gusts are given to 1 m/s.
+- **GitHub display glitch:** the notebook preview on GitHub smeared and stuttered in Edge. It displayed properly in Chrome.
