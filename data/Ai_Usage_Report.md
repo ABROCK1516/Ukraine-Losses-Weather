@@ -190,5 +190,63 @@ The prompts that were used and shaped the project, copied word for word.
 - **Fetching one page:** I had downloaded the site's home page from my browser by mistake (Edge had also translated it), so Claude explained that the code downloads the page itself. Claude's first fetch cell failed because it expected me to create the `raw_html` folder by hand; Claude fixed it with `os.makedirs`.
 - **Page structure:** I ran the charset, table-listing and bot-input cells. The page is UTF-8 and has two tables with no class: one with times and dates, the other with the 18 weather values, both with 243 rows. 
 - **The bot parameter:** the form's `bot` field means 0 = robot, 1 = alien, 2 = human (ticked by default). Claude suggested testing `bot=0`, and it returned only 53 rows instead of 243. I argued that answering "human" was ethical because the project is low-risk. Claude disagreed, because the field is an access limit and `bot=2` misrepresents the scraper.
-- **Wind:** I ran the gust and wind-speed checks. I saw out that the smallest gust is 10 m/s, that average wind speeds are only even numbers (steps of 2 m/s) and that gusts are given to 1 m/s.
-- **GitHub display glitch:** the notebook preview on GitHub smeared and stuttered in Edge. It displayed properly in Chrome.
+
+- ## Session 6 (24–25 October 2026)
+
+**46.** *[Quoting Claude's instruction E1 about checking 2022 pages in the browser]* Can i check this in inspect mode on the site or do i have to run it in colab?
+
+**47.** when i looked them up from the browser, it just brought me to the main section of the site, ill try something else
+
+**48.** 1. I expected there to be data about the weather for 2022 as the weather is unrelated to the invasion of ukraine
+2. The whole month is empty so its not related to the invasion?
+3. This supports starting both stations in january 2023 as 2023 has more complete and accurate data. do you disagree if so state why
+
+**49.** my colab is quite slow and a bit laggy, do you think its worth creating a colab per research question?
+
+
+**50.** okay before we do anything else. would it be worth creating a new colab and copy and pasting what we need/whats been added into this new one and also taking stuff out if we dont need it. right now the colab just seems very messy and has like no clear structure and flow, this is something i would rather have ready then last minute. i want to try get the whole assignment done soon. I think we need to think to think of a clear strutcure that matches the assignment but is also easy for the reader to understand what section they are on, what the section is doing, how it relates to the research and assignment too. before doing anything else - lets go back to the drawing board and see what we can come up with
+
+**51.** *[Uploaded Ukraine_Losses_Weather (5).ipynb]* Okay that makes sense so we'll stay in the same colab.  This is the file right now. We need to determine if all content in it is necessary, how maybe we can rewrite some sections to make the flow more clear and structured.
+
+**52.** the reasons i gave the 1.71-1.74 is because those are the headings that fit step 1-4 in 1.7. don thtink it makes the same sense for the 1.82 ect
+
+**53.** i think make i will make a little more clear - do any sections follow a 2.1.1 or 2.4.1 ect rule? and does the order of events make sense
+
+**54.** okay can i start working now on it
+
+**55.** so i have restructured up to 2.4 - the bot observations cell
+
+**56.** *[Screenshot of a NameError: 'tables' is not defined]* so i restarted the session and was going line by line making sure it all worked. however in this section i recieved an error.
+
+**57.** yeah i had forgooten to had the tables code below 2.3.3
+
+**58.** *[Screenshot of the 2.3.3 cells]* like this?
+
+**59.** okay i think i have this mixed up. 2.3.2 is reading and decoding the pages followed by a code cell. *[pasted the 2.3.3 and "Checking the Cells in One Row" markdown and the tables code cell]* now i have two code blocks that follow eachpther as in their the exact same coding blocks
+
+**60.** i dont think i have the code for the weather_row
+
+**61.** okay lets work on chunk 3
+
+**62.** grand lets get to work
+
+**63.** *[Pasted duplicates check output]* a few questions i hope you can help me answer: i know these are duplicates but why in some of the duplicates is there different figures for the pressure_sea and pressure_station
+
+**64.** *[Pasted the 21 duplicate rows]* just from looking at the output, i find 11362-11365 odd as they are exact duplicates
+
+**65.** in the process of cell pair 1 - the code output came back as *[pasted KeyError: ['precip_24h'] not found in axis]*
+
+**66.** *[Uploaded Ukraine_Losses_Weather (7).ipynb]* lets do a review of our step 2 and let me know if everything is in the right place and outputs are correct
+
+**67.** *[Pasted 21:00 UTC rows]* for the utc_times. the output isnt what i was expecting i thought the time like you said would be there aswell unless im reading it wrong
+
+**68.** anyway we can add that code to show the time into our main code cell then
+
+**69.** how long will step 3 take, step 2 seemed to take forever
+
+### Outcome
+- **Notebook restructured** at my request (95): numbered sections matching the brief, a Goal/Assignment/Research-link opener for each step, and a markdown cell above every code cell. Claude proposed the structure; I set the numbering rule (101): numbered headings are the steps listed in a section, unnumbered headings are checks.
+- **Step 2 review:** Claude found the test-page loop had been deleted, a missing heading, and an out-of-date ethics line, and made all download cells safe to re-run.
+- **Hypotheses:** I broadened the 2.1 table beyond drones to armour, mud and rain (106). I argued for keeping wind direction and questioned the humidity–fog link (119); Claude explained the limits of each, and I chose to drop wind direction and keep humidity until it was tested.
+- **Parsing and cleaning (2.9–2.11):** Claude helped with the code and I wrote observations. I spotted the exact duplicate copies (117) and the hidden times in the local-time output (133).
+- **My decisions:** UTC+3 for both stations (131, after Claude explained the cost of handling the clock change), the daily rules table, and the 6-reading cut-off after checking how many days it drops.
