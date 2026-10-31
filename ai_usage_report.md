@@ -34,7 +34,7 @@ When I asked whether the weather data was complete, Claude admitted it had only 
 
 **9.** from the dashboard/website it seems i can only get the last year like from today to 1 year ago for daily engagments, where did you see i can get daily from may 2024 onwards?
 
-**10.** (pasted output: rows with a value per year, 2022: 0, 2023: 313, 2024: 366, 2025: 365, 2026: 289)
+**10.** *(pasted output: rows with a value per year, 2022: 0, 2023: 313, 2024: 366, 2025: 365, 2026: 289)*
 
 **11.** I have never used Github so can you detail me what i should do and then the steps afterwards on what to finish/complete today.
 
@@ -94,7 +94,7 @@ Averages: I asked whether a new category’s first value could be spread over th
 
 **27.** From the translation, I read clause 3.5 as meaning I wouldnt be able to show it directly on my github and clause 3.6 as meaning the same as 3.5. Is that right? Also, instead of printing the whole agreement, I’d like the code to show only the clauses I reference. Does that make sense?
 
-**28.** (quoted part of Claude’s previous message about inner, left and outer joins) how come we dont use join with outter then? This is how my lecturer taught us how to do it so im wondering what reasons are there to use the others
+**28.** *(quoted part of Claude’s previous message about inner, left and outer joins)* how come we dont use join with outter then? This is how my lecturer taught us how to do it so im wondering what reasons are there to use the others
 
 **29.** (attached a screenshot of the sorted table) just on this part of viewing the date by oldest, how come theres a column labelled ‘...’ and why does the personnel just have ‘ about’rather then figures
 
@@ -200,14 +200,14 @@ This supports starting both stations in january 2023 as 2023 has more complete a
 
 **63.** Next I’m cleaning the parsed data. My steps are: remove duplicate rows, convert times from UTC, then build daily summaries. I’m starting with the duplicates.
 
-**64.** (pasted 2.9 outputs: 0 broken rows, (21474, 23), station counts, first rows)
+**64.** *(pasted 2.9 outputs: 0 broken rows, (21474, 23), station counts, first rows)*
 Before running 2.9, I predicted it to have 21474 rows and 23 columns, since there are 23 categories, and I expected June and July 2023 to be empty for Donetsk. The output shows 0 broken rows and (21474, 23). Is my reasoning about June and July right?
 
 **65.** (pasted duplicates check output) a few questions i hope you can help me answer: i know these are duplicates but why in some of the duplicates is there different figures for the pressure_sea and pressure_station
 
 **66.** (pasted the 21 duplicate rows) just from looking at the output, i find 11362-11365 odd as they are exact duplicates, there is some outputs with just ho like you said too
 
-**67.** (pasted output of the duplicate removal: (21461, 23), 0 duplicates left)
+**67.** *(pasted output of the duplicate removal: (21461, 23), 0 duplicates left)*
 
 **68.** I would say keep Wind_dir - yes its about wind strength but that would be important factor to consider for drones/ firing shells ect. also why would humidity be an extra fog indicator? is there a certain level of humidity that comes with fpg==og
 
@@ -284,6 +284,8 @@ from my own knowledge i am surprised at the personnel loss one, usually when the
 **96.** no that makes sense if its all visible in github.
 
 **97.** would striking artillery be considered medium or short range drone capabilites? how far away is artillery from the front lines usually?
+
+**98.** Do a finial review of the notebook and see if I have missed anything or miscalculated stuff ect
 
 **Outcome**
 
