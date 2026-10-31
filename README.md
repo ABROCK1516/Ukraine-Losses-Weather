@@ -22,7 +22,7 @@ All loss figures are Ukrainian claims and have not been independently verified. 
 | File or folder | What it is |
 |---|---|
 | `Ukraine_Losses_Weather.ipynb` | The notebook: Steps 1–4, with all outputs and plots |
-| `data/raw/` | The two Kaggle CSV files (see the licence note below) |
+| `data/raw/` | The two Kaggle CSV files |
 | `data/processed/weather_daily.csv` | The scraped weather, one row per day for both stations (1,389 days × 25 columns) |
 | `ai_usage_report.md` | Every AI prompt used in the project, with outcomes and a reflection |
 | `README.md` | This file |
