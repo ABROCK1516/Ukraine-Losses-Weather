@@ -1,6 +1,6 @@
 # Prompts used for AI to assist with this Assignment & Reflection
 
-The prompts that were used and shaped the project.
+The prompts that were used for this project.
 
 ---
 
