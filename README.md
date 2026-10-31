@@ -42,8 +42,7 @@ Libraries used: `pandas`, `urllib.request`, `BeautifulSoup` (bs4), `seaborn` and
 
 ## Data sources
 
-**Losses:** ["2022 Russia Ukraine War" by piterfm](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war), Kaggle. Two CSV files of daily cumulative Russian equipment and personnel losses, as reported by official Ukrainian sources. Downloaded on 16 October 2026 (report dates 25 February 2022 – 10 October 2026). Licence: [CHECK ON THE DATASET'S KAGGLE PAGE].
-
+**Losses:** ["2022 Russia Ukraine War" by piterfm](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war), Kaggle. Two CSV files of daily cumulative Russian equipment and personnel losses, as reported by official Ukrainian sources. Downloaded on 16 October 2026 (report dates 25 February 2022 – 10 October 2026)..
 **Weather:** Weather data from [Pogoda i Klimat](http://www.pogodaiklimat.ru) (Источник: сайт [«Погода и Климат»](http://www.pogodaiklimat.ru)). 3-hourly observations scraped from the site's weather archive (`weather.php`) for station 34519 (Donetsk) and station 34300 (Kharkiv).
 
 **Date check (Step 3.1):** [UNN, General Staff loss report of 11 October 2026](https://unn.ua/en/amp/the-general-staff-reported-the-number-of-russian-troops-and-pieces-of-equipment-destroyed-over-the-past-day), used to confirm that Kaggle dates are report dates.
